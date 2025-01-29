@@ -7,6 +7,7 @@ import Card from './Card';
 import Button from './Button';
 import Loader from './Loader';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +36,7 @@ const HomePage = () => {
             analytics and compelling visualizations.
           </p>
         
-            <button className="cta-button"><Button title="Hire Me"/></button>
+           <Link to='./contact'> <button className="cta-button"><Button title="Hire Me"/></button> </Link>
         </div>
         <img
           src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000"
