@@ -78,6 +78,8 @@ body{
 .nav-links {
   display: flex;
   gap: 2rem;
+  backdrop-filter: blur(20px);
+  align-items: center;
 }
 
 .nav-link {
@@ -388,4 +390,11 @@ body{
   .contact-info {
     grid-template-columns: 1fr;
   }
+}
+.loader-1{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 400px;
+  
 }

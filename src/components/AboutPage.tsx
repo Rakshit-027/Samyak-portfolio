@@ -1,8 +1,23 @@
 import React from "react";
 import "./AboutPage.css";
 import Card from "./Card-2";
+import { useState, useEffect } from "react";
+import Loader from "./Loader";
 
-const AboutPage = () => {
+const AboutPage = () =>  {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <div className="loader-1"><Loader /></div>;
+  }
   return (
     <div className="about-container">
       <div className="about-header">

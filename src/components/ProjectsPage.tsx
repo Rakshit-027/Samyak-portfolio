@@ -1,7 +1,22 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import Loader from './Loader';
 
-const ProjectsPage = () => {
+const ProjectsPage = () =>  {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <div className="loader-1"><Loader /></div>;
+  }
   return (
     <div className="projects">
       <div className="projects-content">

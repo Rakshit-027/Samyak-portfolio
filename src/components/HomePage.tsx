@@ -5,8 +5,23 @@ import ShinyText from './ShinyText/ShinyText';
 import TrueFocus from './TrueFocus/TrueFocus';
 import Card from './Card';
 import Button from './Button';
+import Loader from './Loader';
+import { useEffect, useState } from 'react';
 
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <div className="loader-1"><Loader /></div>;
+  }
   return (
     <div className="home">
       <div className="hero">

@@ -1,7 +1,22 @@
 import React from 'react';
 import { Building2, GraduationCap } from 'lucide-react';
+import  Loader  from './Loader';
+import { useState, useEffect } from 'react';
 
 const ExperiencePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <div className="loader-1"><Loader /></div>;
+  }
   return (
     <div className="experience">
       <div className="experience-content">

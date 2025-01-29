@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import Loader from './Loader';
 
-const ContactPage = () => {
+const ContactPage: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log('Form submitted:', formData);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
+
+  // Ensure hooks are always executed before any conditional return
+  if (isLoading) {
+    return <div className="loader-1"><Loader /></div>;
+  }
 
   return (
     <div className="contact">
@@ -40,7 +52,7 @@ const ContactPage = () => {
           </div>
           <div className="contact-item">
             <MapPin size={24} />
-            <p>Nagpur,india</p>
+            <p>Nagpur, India</p>
           </div>
         </div>
 

@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
     //     repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
     background-size: 60px 60px;
     background-position: 0 0, 0 0;
-    background-color: #485563;
+    background-color: #1B1B1B;
     width: 100%;
     box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
     transition: all 0.5s ease-in-out;
@@ -52,7 +52,7 @@ const StyledWrapper = styled.div`
   }
 
   .content-box {
-    background: #485563;
+    background: #1B1B1B;
     /* border-radius: 10px 100px 10px 10px; */
     transition: all 0.5s ease-in-out;
     padding: 60px 25px 25px 25px;
